@@ -24,3 +24,20 @@ class Settings():
         self.fleet_drop_speed = 10
         #设置一个标识位 1为右 -1 为左
         self.fleet_direction = 1
+
+        #设置游戏提升速度
+        self.speedup_scale = 1.1
+        self.initialize_dynamic_setting()
+
+    def initialize_dynamic_setting(self):
+        '''初始化随游戏进行而变化设置'''
+        self.ship_speed_factor = 30
+        self.bullet_speed_factor = 15.5
+        self.alien_speed_factor = 30
+
+        self.fleet_direction = 1
+
+    def increase_speed(self):
+        self.ship_speed_factor *= self.speedup_scale
+        self.bullet_speed_factor *= self.speedup_scale
+        self.alien_speed_factor *= self.speedup_scale
